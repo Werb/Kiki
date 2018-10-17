@@ -1,8 +1,11 @@
 package com.werb.kiki
 
 import android.app.Activity
+import android.content.Context
 import android.view.View
 import com.werb.kiki.core.BuilderInterface
+import com.werb.kiki.core.ViewInterface
+import com.werb.kiki.impl.FloatView
 import com.werb.kiki.model.BuilderData
 import com.werb.kiki.model.DisplayType
 import com.werb.kiki.model.FloatPosition
@@ -14,9 +17,9 @@ import com.werb.kiki.model.FloatPosition
 
 class Kiki {
 
-    class Builder : BuilderInterface {
+    class Builder(applicationContext: Context) : BuilderInterface {
 
-        private val builderData = BuilderData()
+        private val builderData = BuilderData(applicationContext)
 
         override fun setView(view: View): Builder {
             builderData.view = view
@@ -68,6 +71,10 @@ class Kiki {
         override fun setDisplayType(displayType: DisplayType): Builder {
             builderData.displayType = displayType
             return this
+        }
+
+        override fun build(): View {
+            return FloatView(builderData).buildUI()
         }
 
     }

@@ -1,5 +1,6 @@
 package com.werb.kiki.core
 
+import android.view.View
 import com.werb.kiki.model.BuilderData
 
 /**
@@ -30,5 +31,7 @@ internal interface ViewInterface {
     fun getFloatViewX(): Int
 
     fun getFloatViewY(): Int
+
+    fun getView(): View
 
 }

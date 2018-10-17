@@ -38,4 +38,6 @@ internal interface BuilderInterface {
     /** set float window display type see [DisplayType] */
     fun setDisplayType(displayType: DisplayType): Kiki.Builder
 
+    fun build(): View
+
 }

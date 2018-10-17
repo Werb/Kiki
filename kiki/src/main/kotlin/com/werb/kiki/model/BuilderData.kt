@@ -1,13 +1,15 @@
 package com.werb.kiki.model
 
 import android.app.Activity
+import android.content.Context
 import android.view.Gravity
 import android.view.View
 
 /**
  * Created by wanbo on 2018/10/17.
  */
-internal data class BuilderData(var view: View? = null,
+internal data class BuilderData(var applicationContext: Context,
+                                var view: View? = null,
                                 var width: Int = 0,
                                 var height: Int = 0,
                                 var xOffset: Int = 0,

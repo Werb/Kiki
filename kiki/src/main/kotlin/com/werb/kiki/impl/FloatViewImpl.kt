@@ -17,11 +17,6 @@ internal class FloatViewImpl: ViewInterface, FrameLayout {
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
-    init {
-        // todo 测试
-        setBackgroundColor(Color.RED)
-    }
-
     // data
     private lateinit var builderData: BuilderData
 
@@ -31,10 +26,14 @@ internal class FloatViewImpl: ViewInterface, FrameLayout {
 
     // touch
 
+    override fun getView(): View = this
+
     override fun initData(builderData: BuilderData) {
         this.builderData = builderData.apply {
             this@FloatViewImpl.id = this.tag.hashCode()
             this@FloatViewImpl.floatView = this.view ?: throw NullPointerException("You didn't set the float view in Kiki.Builder.setView!")
+            this@FloatViewImpl.floatLayoutParams.width = this.width
+            this@FloatViewImpl.floatLayoutParams.height = this.height
         }
     }
 
