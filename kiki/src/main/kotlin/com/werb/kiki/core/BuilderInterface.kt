@@ -1,10 +1,10 @@
 package com.werb.kiki.core
 
 import android.app.Activity
-import android.support.annotation.IdRes
 import android.view.View
 import com.werb.kiki.Kiki
 import com.werb.kiki.model.DisplayType
+import com.werb.kiki.model.FloatPosition
 
 /**
  * [com.werb.kiki.Kiki.Builder] interface class
@@ -14,13 +14,11 @@ internal interface BuilderInterface {
 
     fun setView(view: View): Kiki.Builder
 
-    fun setViewById(@IdRes id: Int): Kiki.Builder
-
     fun setSize(width: Int, height: Int): Kiki.Builder
 
     fun setOffset(xOffset: Int, yOffset: Int): Kiki.Builder
 
-    fun setGravity(gravity: Int): Kiki.Builder
+    fun setGravity(floatPosition: FloatPosition): Kiki.Builder
 
     /** distinguish unique key in multiple views */
     fun setTag(tag: String): Kiki.Builder
@@ -32,7 +30,7 @@ internal interface BuilderInterface {
     fun setActivityFilter(show: Boolean, vararg activities: Class<out Activity>): Kiki.Builder
 
     /** whether attachToEdge when move stop */
-    fun isAttachToEdge(attach: Boolean): Kiki.Builder
+    fun isAttachToEdge(isAttachToEdge: Boolean): Kiki.Builder
 
     /** is show in System desktop when user back home , only support  */
     fun isShowInSystemDesktop(show: Boolean): Kiki.Builder

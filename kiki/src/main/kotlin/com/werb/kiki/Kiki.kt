@@ -3,7 +3,9 @@ package com.werb.kiki
 import android.app.Activity
 import android.view.View
 import com.werb.kiki.core.BuilderInterface
+import com.werb.kiki.model.BuilderData
 import com.werb.kiki.model.DisplayType
+import com.werb.kiki.model.FloatPosition
 
 /**
  * Module Enter Class
@@ -14,48 +16,58 @@ class Kiki {
 
     class Builder : BuilderInterface {
 
-        override fun setView(view: View): Builder {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        }
+        private val builderData = BuilderData()
 
-        override fun setViewById(id: Int): Builder {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        override fun setView(view: View): Builder {
+            builderData.view = view
+            return this
         }
 
         override fun setSize(width: Int, height: Int): Builder {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            builderData.width = width
+            builderData.height = height
+            return this
         }
 
         override fun setOffset(xOffset: Int, yOffset: Int): Builder {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            builderData.xOffset = xOffset
+            builderData.yOffset = yOffset
+            return this
         }
 
-        override fun setGravity(gravity: Int): Builder {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        override fun setGravity(floatPosition: FloatPosition): Builder {
+            builderData.floatPosition = floatPosition
+            return this
         }
 
         override fun setTag(tag: String): Builder {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            builderData.tag = tag
+            return this
         }
 
         override fun setMoveListener(moveListener: (x: Int, y: Int) -> Unit): Builder {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            builderData.moveListener = moveListener
+            return this
         }
 
         override fun setActivityFilter(show: Boolean, vararg activities: Class<out Activity>): Builder {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            builderData.filterActivities[show] = activities
+            return this
         }
 
-        override fun isAttachToEdge(attach: Boolean): Builder {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        override fun isAttachToEdge(isAttachToEdge: Boolean): Builder {
+            builderData.isAttachToEdge = isAttachToEdge
+            return this
         }
 
         override fun isShowInSystemDesktop(show: Boolean): Builder {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            builderData.isShowInSystemDesktop = show
+            return this
         }
 
         override fun setDisplayType(displayType: DisplayType): Builder {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            builderData.displayType = displayType
+            return this
         }
 
     }
